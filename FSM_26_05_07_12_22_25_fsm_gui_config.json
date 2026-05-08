@@ -1,0 +1,91 @@
+{
+"FSM_LC_TIMEOUT": "0x0000",
+"FSM_ODR": 480,
+"FSM_START_ADD": "0x0400",
+"INT1_FSM_LC": false,
+"INT2_FSM_LC": false,
+"application" : {
+    "name": "MEMS Studio",
+    "version": "2.3.1"
+},
+"extraEmbFuncRegisters" : {
+    "EMB_FUNC_EN_A": "00",
+    "EMB_FUNC_EN_B": "00",
+    "EMB_FUNC_INT1": "00",
+    "EMB_FUNC_INT2": "00",
+    "FSM_ODR": "4B",
+    "PAGE_RW": "00"
+},
+"extraRegisters" : {
+    "CTRL1": "08",
+    "CTRL1_XL_HG": "98",
+    "CTRL2": "06",
+    "EMB_FUNC_CFG": "00",
+    "FUNC_CFG_ACCESS": "00",
+    "MD1_CFG": "00",
+    "MD2_CFG": "00"
+},
+"json_format" : {
+    "type": "fsm_gui_config",
+    "version": "1.0"
+},
+"sensorName": "ISM6HG256X",
+"data": [
+{
+"programNumber": 1,
+"status": {
+    "FSM_ENABLE": true,
+    "FSM_INT1": true,
+    "FSM_INT2": false
+},
+"variableDataSection": {
+    "MASKA": "0x02",
+    "TC_LSB": "0x00",
+    "TC_MSB": "0x00",
+    "THRESH1_LSB": "0x66",
+    "THRESH1_MSB": "0x3C",
+    "TIMER1_LSB": "0x00",
+    "TIMER1_MSB": "0x00",
+    "TMASKA": "0x00"
+},
+"instructionsSection": [
+	{
+		"comment": "",
+		"opcode": "0xB5",
+		"stateText": "SETR",
+		"stateType": "CMD",
+		"parameters": [
+			{"parameterName":"REG_ADDR","parameterValue":"0x13"},
+			{"parameterName":"REG_VAL","parameterValue":"0x98"}
+		]
+	},
+	{
+		"opcode": "51",
+		"stateText": "GNTH1 | TI1",
+		"stateType": "RNC"
+	},
+	{
+		"comment": "",
+		"opcode": "0xB5",
+		"stateText": "SETR",
+		"stateType": "CMD",
+		"parameters": [
+			{"parameterName":"REG_ADDR","parameterValue":"0x13"},
+			{"parameterName":"REG_VAL","parameterValue":"0x00"}
+		]
+	},
+	{
+		"opcode": "05",
+		"stateText": "NOP | GNTH1",
+		"stateType": "RNC"
+	},
+	{
+		"comment": "",
+		"opcode": "0x22",
+		"stateText": "CONTREL",
+		"stateType": "CMD"
+	}
+]
+}
+]
+}
